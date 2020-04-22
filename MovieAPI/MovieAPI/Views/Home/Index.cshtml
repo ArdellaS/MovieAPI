@@ -1,0 +1,14 @@
+﻿@*@model Film
+@{
+    ViewData["Title"] = "Home Page";
+    List<Film> movies = (List<Film>)ViewData["Movies"];
+}
+
+<div class="text-center">
+    <ul>
+        @foreach (var m in movies)
+        {
+            <p>@m.Name -- @m.Director</p>
+        }
+    </ul>
+</div>*@

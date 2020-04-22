@@ -1,0 +1,23 @@
+﻿
+CREATE DATABASE [MovieAPI]
+GO
+USE [MovieAPI]
+GO
+CREATE TABLE [Movies](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NOT NULL,
+	[Year] [int] NOT NULL,
+	[Director] [nvarchar](280) NULL,
+	[Category] [nvarchar](20) NOT NULL,
+	);
+GO
+
+INSERT INTO [Movies] ([Name], [Year], [Director], [Category]) 
+VALUES 
+('Fight Club', 1999, 'David Fincher', 'Drama'),
+('Parasite', 2019, 'Bong Joon Ho', 'Thriller'),
+('SnowPiercer', 2013, 'Bong Joon Ho', 'Action'),
+('The Platform', 2019, 'Galder Gaztelu-Urrutia', 'Horror'),
+('Joker', 2019, 'Todd Phillips', 'Crime'),
+('The Hateful Eight', 2015, 'Quentin Tarantino', 'Drama')
+GO
