@@ -38,17 +38,6 @@ namespace MovieAPI.Controllers
             }
         }
 
-        public Film GetRandomFilm()
-        {
-            return dal.GetRandomMovie();
-        }
-        [HttpGet("category")]
-        public IEnumerable<Film> RandomCategories(string category)
-        {
-            IEnumerable<Film> films = dal.GetRandomFilmsByCategory(category);
-            return films;
-        }
-
        
     }
 }
