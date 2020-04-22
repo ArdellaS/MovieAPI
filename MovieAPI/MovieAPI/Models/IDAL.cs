@@ -7,7 +7,6 @@ namespace MovieAPI.Models
 {
     public interface IDAL
     {
-
         Film GetRandomMovie();
         IEnumerable<Film> GetAllMovies();
         IEnumerable<Film> GetFilmsByCategory(string category);

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,12 +10,13 @@ namespace MovieAPI.Models
 {
     public class DAL : IDAL
     {
-        private SqlConnection conn;
+        //private SqlConnection conn;
         private string connectionString;
 
-        public DAL(string connectionString)
+        public DAL(IConfiguration config)
         {
-            conn = new SqlConnection(connectionString);
+            connectionString = config.GetConnectionString("default");
+          //  conn = new SqlConnection(connectionString);
         }
 
         public IEnumerable<Film> GetAllMovies()
@@ -76,7 +78,7 @@ namespace MovieAPI.Models
         public IEnumerable<Film> GetFilmsByCategory(string category)
         {
             SqlConnection connection = null;
-            string queryString = "SELECT * FROM Products WHERE Category = @cat";
+            string queryString = "SELECT * FROM Movies WHERE Category = @cat";
             IEnumerable<Film> Films = null;
 
             try
@@ -101,7 +103,7 @@ namespace MovieAPI.Models
         }
         public IEnumerable<Film> GetRandomFilmsByCategory(string category)
         {
-            string queryString = "SELECT * category FROM Movies  ORDER BY NEWID()";
+            string queryString = "SELECT Top 1 FROM Movies  ORDER BY NEWID() Where Category = @cat";
             IEnumerable<Film> Films = null;
 
             SqlConnection connection = null;

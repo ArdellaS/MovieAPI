@@ -12,11 +12,11 @@ using MovieAPI.Models;
 namespace MovieAPI.Controllers
 {
     [ApiController]
-    [Route("[api/controller]")]
-    public class HomeController : ControllerBase
+    [Route("api/[controller]")]
+    public class MoviesController : ControllerBase
     {
         private IDAL dal;
-        public HomeController(IDAL dalObject)
+        public MoviesController(IDAL dalObject)
         {
             dal = dalObject;
         }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MovieAPI.Models;
 
 namespace MovieAPI
 {
@@ -24,6 +25,7 @@ namespace MovieAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddTransient<IDAL, DAL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
